@@ -1,0 +1,134 @@
+@baseUrl = http://localhost:3000
+@tokenUserA = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NCwiZW1haWwiOiJ1c2VyQUB0ZXN0LmNvbSIsImlhdCI6MTc3NTA0MTg1MywiZXhwIjoxNzc1MTI4MjUzfQ.HX8MN2sh-i6fk4VsFfss8_ZY1qlYF0FT1n-c2Cu4HBs
+@tokenUserB = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NSwiZW1haWwiOiJ1c2VyQkB0ZXN0LmNvbSIsImlhdCI6MTc3NTA0MTg2NywiZXhwIjoxNzc1MTI4MjY3fQ.NswSyZuqPnJ7o_O0qRAP_Tlpk1ktqs9lmuSSwpyZRBk
+
+@groupId = 3
+@budgetId = 12
+
+
+### REGISTER USER A
+POST {{baseUrl}}/auth/register
+Content-Type: application/json
+
+{
+  "first_name": "UserA",
+  "last_name": "Test",
+  "email": "userA@test.com",
+  "password": "123456"
+}
+
+### REGISTER USER B
+POST {{baseUrl}}/auth/register
+Content-Type: application/json
+
+{
+  "first_name": "UserB",
+  "last_name": "Test",
+  "email": "userB@test.com",
+  "password": "123456"
+}
+
+### LOGIN USER A
+POST {{baseUrl}}/auth/login
+Content-Type: application/json
+
+{
+  "email": "userA@test.com",
+  "password": "123456"
+}
+
+### LOGIN USER B
+POST {{baseUrl}}/auth/login
+Content-Type: application/json
+
+{
+  "email": "userB@test.com",
+  "password": "123456"
+}
+
+
+### TEST SANS TOKEN - GROUPS/ME
+GET {{baseUrl}}/groups/me
+
+### TEST FAUX TOKEN - GROUPS/ME
+GET {{baseUrl}}/groups/me
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NSwiZW1haWwiOiJ1c2VyQUB0ZXN0LmNvbSIsImlhdCI6MTc3NTAzNDc3OSwiZXhwIjoxNzc1MTIxMTc5fQ.sGWwOEufjyxc5bquQuQOBQMbF77bN5msDXYL3t4WBNd
+
+### CREATE GROUP USER A
+POST {{baseUrl}}/groups
+Content-Type: application/json
+Authorization: Bearer {{tokenUserA}}
+
+{
+  "name": "Groupe Secure Test"
+}
+
+### GET GROUP USER B - DOIT FAIL
+GET {{baseUrl}}/groups/{{groupId}}
+Authorization: Bearer {{tokenUserB}}
+
+### ADD USER IN GROUP WITH USER B - DOIT FAIL
+POST {{baseUrl}}/groups/{{groupId}}/users
+Content-Type: application/json
+Authorization: Bearer {{tokenUserB}}
+
+{
+  "email": "test@test.com"
+}
+
+### CREATE BUDGET USER A
+POST {{baseUrl}}/budgets
+Content-Type: application/json
+Authorization: Bearer {{tokenUserA}}
+
+{
+  "amount": 1000,
+  "group_id": {{groupId}},
+  "date_budget": "2026-03-01",
+  "is_monthly": true,
+  "name": "Budget Secure Test"
+}
+
+### PATCH BUDGET USER B - DOIT FAIL
+PATCH {{baseUrl}}/budgets/{{budgetId}}
+Content-Type: application/json
+Authorization: Bearer {{tokenUserB}}
+
+{
+  "amount": 9999
+}
+
+### CREATE BUDGET INVALID DATA - DOIT FAIL
+POST {{baseUrl}}/budgets
+Content-Type: application/json
+Authorization: Bearer {{tokenUserA}}
+
+{
+  "amount": "abc",
+  "group_id": "lol"
+}
+
+### CREATE BUDGET NEGATIVE AMOUNT - DOIT FAIL IDEALEMENT
+POST {{baseUrl}}/budgets
+Content-Type: application/json
+Authorization: Bearer {{tokenUserA}}
+
+{
+  "amount": -1000,
+  "group_id": {{groupId}},
+  "date_budget": "2026-03-01",
+  "is_monthly": true,
+  "name": "Budget negatif"
+}
+
+### DELETE BUDGET WITHOUT TOKEN - DOIT FAIL
+DELETE {{baseUrl}}/budgets/{{budgetId}}
+
+### DELETE BUDGET USER B - DOIT FAIL
+DELETE {{baseUrl}}/budgets/{{budgetId}}
+Authorization: Bearer {{tokenUserB}}
+
+
+### MES GROUPES USER A
+GET {{baseUrl}}/groups/me
+Authorization: Bearer {{tokenUserA}}

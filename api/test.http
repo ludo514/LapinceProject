@@ -1,0 +1,119 @@
+@baseUrl = http://localhost:3000
+@token = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NCwiZW1haWwiOiJicmljZTJAdGVzdC5jb20iLCJpYXQiOjE3NzUwNDU2ODEsImV4cCI6MTc3NTEzMjA4MX0.Sfr8MopxtHMHf5di35XxGU-eg_uFLJCzvK_Qx-MHRKs
+POST {{baseUrl}}/auth/register
+Content-Type: application/json
+
+{
+  "first_name": "Brice",
+  "last_name": "Test",
+  "email": "brice2@test.com",
+  "password": "123456"
+}
+
+### login
+POST {{baseUrl}}/auth/login
+Content-Type: application/json
+
+{
+  "email": "brice2@test.com",
+  "password": "123456"
+}
+
+### get user
+GET {{baseUrl}}/auth/me
+Authorization: Bearer {{token}}
+
+
+### route racine
+GET {{baseUrl}}/
+
+### tous les groupes
+GET {{baseUrl}}/groups
+
+### mes groupes
+GET {{baseUrl}}/groups/me
+Authorization: Bearer {{token}}
+
+GET {{baseUrl}}/groups/me
+Authorization: Bearer {{token}}
+
+### créer un groupe
+POST {{baseUrl}}/groups
+Content-Type: application/json
+Authorization: Bearer {{token}}
+
+{
+  "name": "Famille"
+}
+
+### détail d'un groupe
+GET {{baseUrl}}/groups/1
+
+### ajouter un user dans un groupe
+POST {{baseUrl}}/groups/1/users
+Content-Type: application/json
+Authorization: Bearer {{token}}
+
+{
+  "email": "ludo@test.com"
+}
+
+### modifier le rôle d'un user dans un groupe
+PATCH {{baseUrl}}/groups/1/users/2
+Content-Type: application/json
+Authorization: Bearer {{token}}
+
+{
+  "role": "admin",
+  "status": "accepted"
+}
+
+### retirer un user du groupe
+DELETE {{baseUrl}}/groups/1/users/2
+Authorization: Bearer {{token}}
+
+### récupérer les budgets d'un groupe
+GET {{baseUrl}}/budgets?group_id=1
+Authorization: Bearer {{token}}
+
+### récupérer mes budgets
+GET {{baseUrl}}/budgets/me
+Authorization: Bearer {{token}}
+
+### récupére tous les budgets
+GET {{baseUrl}}/budgets/
+Authorization: Bearer {{token}}
+
+### créer un budget
+POST {{baseUrl}}/budgets
+Content-Type: application/json
+Authorization: Bearer {{token}}
+
+{
+  "amount": 1200,
+  "group_id": 1,
+  "date_budget": "2026-03-01",
+  "is_monthly": true,
+  "name": "Budget mars"
+}
+
+### détail d'un budget
+GET {{baseUrl}}/budgets/1
+Authorization: Bearer {{token}}
+
+### modifier un budget
+PATCH {{baseUrl}}/budgets/1
+Content-Type: application/json
+Authorization: Bearer {{token}}
+
+{
+  "amount": 1400
+}
+
+### dupliquer le budget au mois suivant
+POST {{baseUrl}}/budgets/1/next
+Authorization: Bearer {{token}}
+
+### supprimer un budget
+DELETE {{baseUrl}}/budgets/1
+Authorization: Bearer {{token}}
