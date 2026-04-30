@@ -4,149 +4,276 @@
 
 <section class="landing">
 	<section class="hero">
-		<div>
+		<nav>
 			<h1 class="main-title">Lapince</h1>
-		</div>
-		<!-- <p>
-			Gérez votre budget en groupe simplement, suivez vos dépenses et
-			visualisez vos finances en un coup d'œil.
-		</p> -->
+			<div>
+				<span class="contact">Contact</span>
+				<button onclick={() => push("/login")}>Se connecter</button>
+			</div>
 
-		<div class="actions">
-			<button onclick={() => push("/login")}>Se connecter</button>
+		</nav>
+		<section class="containerHero">
+			<div class="leftContainer">
+				<span>Gestion de budget collaboratif</span>
+				<h2>Gérez vos finances en groupe, simplement.</h2>
+				<p>Suivez vos dépenses, définissez des budgets et visualisez vos finances en un coup d'œil — seul ou à plusieurs.</p>
+				<button>Commencer gratuitement</button>
+				<small>Sans carte bancaire · Données chiffrées</small>
+			</div>
+			<div>
+				<div class="exemple">
+					<h4>Budget — Famille</h4>
+					<span>760 €</span>
+					<small>restants sur 2 400 €</small>
+					<p>TRANSACTIONS RÉCENTES</p>
+					<div class="mini-bar"><div class="mini-fill"></div></div>
+					<div class="transac">
+						<div>
+							<small class="cate">Loyer</small>
+							<small class="cate">Salaire</small>
+							<small class="cate">Carrefour</small>
+						</div>
+						<div>
+							<small class="expense">-950€</small>
+							<small class="income">+2400€</small>
+							<small class="expense">-84€</small>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+	</section>
+	<section class="containerBody">
+		<div class="textBody">
+			<p class="needToHave">Tout ce qu'il vous faut</p>
+			<p class="tools">Des outils simples pour une gestion claire et partagée.</p>
+		</div>
+		<div class="containerCards">
+			<div class="cards">
+				<strong>Suivi des dépenses</strong>
+				<p>Ajoutez et catégorisez chaque transaction en quelques secondes, avec ou sans récurrence.</p>
+			</div>
+			<div class="cards">
+				<strong>Suivi des dépenses</strong>
+				<p>Ajoutez et catégorisez chaque transaction en quelques secondes, avec ou sans récurrence.</p>
+			</div>
+			<div class="cards">
+				<strong>Suivi des dépenses</strong>
+				<p>Ajoutez et catégorisez chaque transaction en quelques secondes, avec ou sans récurrence.</p>
+			</div>
 		</div>
 	</section>
-	<section class="info">
-		<h2>Pourquoi Lapince ?</h2>
-		<p>
-			Lapince est né d’un constat simple : gérer son budget est souvent
-			compliqué, voire décourageant. Notre objectif est de rendre cette
-			gestion simple, claire et accessible à tous.
-		</p>
-
-		<h3 class="with">Avec Lapince, vous pouvez gérez:</h3>
-		<div class="features">
-			<div class="card">
-				<h2>Dépenses</h2>
-				<p>Ajoutez et suivez facilement les transactions du groupe.</p>
+	<footer>
+		<section class="firstPartFooter">
+			<div>
+				<span>Prêt à reprendre le contrôle ?</span>
+				<p>Créez votre compte en 30 secondes, c'est gratuit.</p>
 			</div>
-
-			<div class="card">
-				<h2>Budgets</h2>
-				<p>Définissez des budgets mensuels pour mieux anticiper.</p>
-			</div>
-
-			<div class="card">
-				<h2>Visualisation</h2>
-				<p>
-					Consultez des graphiques clairs pour comprendre vos
-					finances.
-				</p>
-			</div>
-		</div>
-	</section>
+			<button>
+				Créer un compte
+			</button>
+		</section>	
+		<section class="secondPartFooter">
+			<p>© 2026 Lapince — Projet étudiant</p>
+			<a href="">Mentions légales</a>
+		</section>
+	</footer>
 </section>
 
 <style>
 	.landing {
 		font-family: var(--text-font);
-		overflow-x: hidden;
-		height: 100dvh;
 	}
 
+	nav {
+		display: flex;
+		justify-content: space-between;
+		padding: 1rem;
+		h1{
+			color: #F2D28C; /* --color-accent */
+		}
+	}
+
+	.contact{
+		margin-right: 1rem;
+	}
 	.hero {
 		max-width: 100%;
-		background: linear-gradient(135deg, #26633f, #4a7c78);
-		display: flex;
-		flex-direction: column;
-		justify-content: center;
-		align-items: center;
+		background: #1E2F2C; /* --bg-dark */
 		color: var(--background);
 		position: relative;
-		padding: 2rem;
-		border-bottom: solid 1px var(--accent-color);
+		height: 55%;
+		padding-bottom: 1rem;
 	}
 
-	.main-title {
-		font-size: 3rem;
-		margin-bottom: 1rem;
-		font-family: var(--title-font);
-		text-shadow: 1px 1px 0px var(--accent-color);
-	}
+	.exemple{
+		width: 18rem;
+		h4{
+			font-weight: 300;
+			font-size: .9rem;
+			color: rgba(255,255,255,0.55); /* --text-on-dark-tertiary */
+			margin-bottom: .5rem;
+		}
+		.transac{
+			display: flex;
+			justify-content: space-between;
+		}
+		span{
+			font-size: 1.8rem;
+		}
+		small{
+			color: rgba(255,255,255,0.35);
+		}
+		p{
+			font-size: 0.8rem;
+			color: rgba(255,255,255,0.55);/* --text-on-dark-tertiary */
+			margin-bottom: 1rem;
+		}
+		.expense{
+			color: #D85A30; /*--color-expense*/
+		}
+		.income{
+			color: #1D9E75; /*--color-income*/
+		}
+		.cate{
+			color: rgba(255,255,255,0.75);
+		}
 
-	.info {
+		  .mini-bar {
+			height: 5px;
+			background: rgba(255,255,255,0.1);
+			border-radius: 99px;
+			margin-bottom: 16px;
+			overflow: hidden;
+		}
+ 
+		.mini-fill {
+			height: 100%;
+			width: 68%;
+			background: #4A7C78; /* --color-primary */
+			border-radius: 99px;
+		}
+	}
+	
+	.containerHero{
 		display: flex;
 		justify-content: center;
 		align-items: center;
-		flex-direction: column;
-		padding: 2rem;
-		margin: 2rem 0;
+		margin-top: 3rem;
+		.leftContainer{
+			width: 30rem;
+			h2{
+				font-size: 3rem;
+				margin: 1rem 0 2rem 0;
+			}
+			span{
+				font-size: 0.8rem;
+				background-color: rgba(242,210,140,0.3); /* --color-accent-border */
+				padding: .5rem;
+				border-radius: 2rem;
+				color: #F2D28C;
+				outline: solid 1px #F2D28C; /* --color-accent */
+			}
+			p{
+				color: rgba(255,255,255,0.55); /* --text-on-dark-tertiary */
+				margin-bottom: 1rem;
+			}
+			button{
+				margin-bottom: 1rem;
+			}
+			small{
+				color: rgba(255,255,255,0.30); /* --text-on-dark-dim */
+			}
+		}
+		.exemple{
+			background-color: #2F4640; /* --bg-dark-mid */
+			padding: 2rem;
+			outline: solid 1px rgba(255, 255, 255, 0.25); /* --border-nav-btn */
+			border-radius: .8rem;
+			margin-left: 15rem;
+		}
+	}
+	small{
+		display: block;
 	}
 
-	p {
-		font-size: 1.1rem;
-		line-height: 1.6;
-		text-align: center;
-	}
-
-	.with {
-		margin: 5rem 0;
-	}
-
-	.features {
-		width: 100%;
-		display: flex;
-		flex-direction: column;
-		justify-content: center;
-		align-items: center;
-		gap: 1.5rem;
-	}
-
-	.card {
-		display: flex;
-		flex-direction: column;
-		align-items: center;
-		border-radius: 1.5rem;
-		padding: 1.5rem;
-		box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-		background-color: #f2d28c67;
-		padding: 2rem;
-	}
-
-	.card h2 {
-		margin-bottom: 0.8rem;
-		font-size: 1.3rem;
-	}
 
     button {
-		font-family: var(--additionnal-font);
-        padding: 0.8rem 0.8rem;
+        padding: 0.5rem 0.5rem;
         border-radius: 8px;
         border: none;
-        color: var(--background);
-		background-color: var(--secondary-color);
-        border: solid 1px var(--light-color);
+        color: #1E2F2C; /* --bg-dark */
+		background-color: #F2D28C; /* --color-accent*/
+		font-weight: 600;
     }
 
+	.containerBody{
+		padding-top: 5rem;
+		width: 100%;
+		.textBody{
+			text-align: center;
+		}
+		.needToHave{
+			font-size: 1.6rem;
+			font-weight: 500;
+			color: #1E2F2C; /* --text-on-light-primary*/
+		}
+		.tools{
+			color: #888888; /* --text-on-light-secondary */
+		}
+		.containerCards{
+			display: flex;
+			gap: 8rem;
+			width: 100%;
+			padding: 1rem;
+			justify-content: center;
+			margin-top: 1.5rem;
+		}
+		.cards{
+			width: 20rem;
+			background-color: #ffffff; /* --bg-white */
+			padding: 1.6rem;
+			border-radius: 1rem;
+			outline: solid 1px rgba(0, 0, 0, 0.07);
+			p{
+				margin: 1rem 0 1rem 0;
+			}
+		}
+	}
+
+	footer{
+		width: 100%;
+		margin-top: 5rem;
+		.firstPartFooter{
+			background-color: #1E2F2C;
+			padding: 2rem;
+			display: flex;
+			justify-content: space-around;
+			span{
+				color: #ffffff;
+				font-weight: bold;
+				font-size: 1.2rem;
+			}
+			p{
+				color: rgba(255,255,255,0.35); /* --text-on-dark-muted*/
+			}
+		}
+		.secondPartFooter{
+			background-color: #152320; /* --bg-dark-deep*/
+			display: flex;
+			justify-content: space-between;
+			padding: 1rem;
+			p{
+				color: rgba(255,255,255,0.30); /* --text-on-dark-dim*/
+			}
+			a{
+				text-decoration: none;
+				color: rgba(255,255,255,0.30);
+			}
+		}
+	}
 	button:hover {
 		cursor: pointer;
-        border: solid 1px var(--accent-color);
-        background-color: var(--light-color);
 	}
 
-	@media (min-width: 768px) {
-		.features {
-			flex-direction: row;
-		}
-
-		.actions {
-			position: absolute;
-			top: 1rem;
-			right: 1rem;
-		}
-
-		.hero {
-			padding: 5%;
-		}
-	}
 </style>

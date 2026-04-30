@@ -7,6 +7,7 @@
   --accent-color: #F2D28C;
   --light-color: #A8D1C2;
   --dark-color: #1E2F2C;
+  --bg-cream: #F4F2EF;
 
   --title-font: "IBM Plex Sans", sans-serif;
   --text-font: "Roboto", sans-serif;
@@ -20,6 +21,6 @@
 }
 
 #app {
-  background-color: var(--background); /* white*/
+  background-color: var(--bg-cream); /* white*/
 
 }

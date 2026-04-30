@@ -3,7 +3,6 @@
 
     import NavBar from "../lib/components/NavBar.svelte";
     import BottomBar from "../lib/components/BottomBar.svelte";
-    import Button from "../lib/components/Button.svelte";
     import Transaction from "../lib/components/Transaction.svelte";
     import Group from "../lib/components/Group.svelte";
     import Graph from "../lib/components/Graph.svelte";

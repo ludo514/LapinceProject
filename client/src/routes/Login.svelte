@@ -105,10 +105,6 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    background: url("../assets/login-background.png");
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
   }
 
   .logo {
@@ -129,7 +125,6 @@
   .overlay {
     position: fixed;
     inset: 0;
-    background: rgba(0, 0, 0, 0.5);
     backdrop-filter: blur(5px);
     z-index: 1;
   }
@@ -138,8 +133,7 @@
     width: 80%;
     position: relative;
     background-color: var(--primary-color);
-    border-radius: 30px;
-    border: solid 1px var(--dark-color);
+    border-radius: .5rem;
     padding: 1rem 1rem 1rem 0.5rem;
     display: flex;
     flex-direction: column;
@@ -167,24 +161,23 @@
       gap: 0.5rem;
 
       input {
-        border-radius: 10px;
+        border-radius: .3rem;
+        padding: .3rem;
       }
     }
   }
 
   .connect-button {
-    width: max-content;
+    width: 10rem;
     padding: 0 1rem;
-    border-radius: 10px;
+    border-radius: .3rem;
     background-color: var(--secondary-color);
+    padding: .5rem;
     color: var(--background);
-    border: solid 1px var(--light-color);
   }
 
   .connect-button:hover {
     cursor: pointer;
-    border: solid 1px var(--accent-color);
-    color: var(--foreground);
     background-color: var(--light-color);
   }
 
