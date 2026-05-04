@@ -189,32 +189,41 @@
         <NavBar groupName="La Pince" />
         {#if activeGroup.id }
             <div id="filter-buttons">
-                <Button
-                    filter={"all"}
-                    onClick={() => filteringTransaction("all")}
-                >
-                    Tout
-                </Button>
-                <Button
-                    filter={"income"}
-                    onClick={() => filteringTransaction("income")}
-                >
-                    Entrées
-                </Button>
+                <input
+                    type="radio"
+                    id="f-all"
+                    name="filter"
+                    value="all"
+                    bind:group={filter}
+                />
+                <label for="f-all">Tout</label>
 
-                <Button
-                    filter={"recurring"}
-                    onClick={() => filteringTransaction("recurring")}
-                >
-                    Récurrences
-                </Button>
+                <input
+                    type="radio"
+                    id="f-income"
+                    name="filter"
+                    value="income"
+                    bind:group={filter}
+                />
+                <label for="f-income">Entrées</label>
 
-                <Button
-                    filter={"expense"}
-                    onClick={() => filteringTransaction("expense")}
-                >
-                    Sorties
-                </Button>
+                <input
+                    type="radio"
+                    id="f-recurring"
+                    name="filter"
+                    value="recurring"
+                    bind:group={filter}
+                />
+                <label for="f-recurring">Récurrences</label>
+
+                <input
+                    type="radio"
+                    id="f-expense"
+                    name="filter"
+                    value="expense"
+                    bind:group={filter}
+                />
+                <label for="f-expense">Sorties</label>
             </div>
             {#if transactionGroup.transactions?.length != 0}
                 <Graph {data} />
@@ -373,6 +382,45 @@
         justify-content: center;
         gap: 0.75rem;
         padding: 0.75rem 1.25rem;
+    }
+
+        #filter-buttons {
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: row;
+        justify-content: center;
+        gap: 0.75rem;
+        padding: 0.75rem 1.25rem;
+        margin-bottom: 1rem;
+    }
+
+    #filter-buttons input[type="radio"] {
+        display: none;
+    }
+
+    #filter-buttons label {
+        background-color: var(--secondary-color);
+        border: none;
+        cursor: pointer;
+        padding: 0.5rem 1rem;
+        font-family: var(--text-font);
+        font-size: 0.85rem;
+        font-weight: 600;
+        text-transform: uppercase;
+        color: var(--background);
+        border-radius: 0.5rem;
+        box-shadow: 0px 3px 5px var(--foreground);
+        letter-spacing: 0.05em;
+        transition: all 300ms;
+    }
+
+    #filter-buttons input[type="radio"]:checked + label {
+        background-color: var(--accent-color);
+        color: var(--foreground);
+    }
+
+    #filter-buttons label:hover {
+        transform: scale(1.05);
     }
 
 
