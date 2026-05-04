@@ -50,16 +50,28 @@
 		</div>
 		<div class="containerCards">
 			<div class="cards">
+				<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#4A7C78" stroke-width="1.8">
+					<rect x="2" y="5" width="20" height="14" rx="3" />
+					<path d="M2 10h20" />
+				</svg>
 				<strong>Suivi des dépenses</strong>
 				<p>Ajoutez et catégorisez chaque transaction en quelques secondes, avec ou sans récurrence.</p>
 			</div>
 			<div class="cards">
-				<strong>Suivi des dépenses</strong>
-				<p>Ajoutez et catégorisez chaque transaction en quelques secondes, avec ou sans récurrence.</p>
+				<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#4A7C78" stroke-width="1.8">
+					<circle cx="12" cy="12" r="9" />
+					<path d="M12 7v5l3 3" />
+				</svg>
+				<strong>Budgets mensuels</strong>
+				<p>Suivez la consommation de votre budget en temps réel.</p>
 			</div>
 			<div class="cards">
-				<strong>Suivi des dépenses</strong>
-				<p>Ajoutez et catégorisez chaque transaction en quelques secondes, avec ou sans récurrence.</p>
+				<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#4A7C78" stroke-width="1.8">
+					<path d="M21 21H4a1 1 0 0 1-1-1V3" />
+					<path d="m7 16 4-4 4 4 5-5" />
+				</svg>
+				<strong>Visualisation claire</strong>
+				<p>Des graphiques par catégorie pour comprendre vos finances.</p>
 			</div>
 		</div>
 	</section>
@@ -88,7 +100,7 @@
 	nav {
 		display: flex;
 		justify-content: space-between;
-		padding: 1rem;
+		padding: 1.5rem;
 		h1{
 			color: #F2D28C; /* --color-accent */
 		}
@@ -103,7 +115,7 @@
 		color: var(--background);
 		position: relative;
 		height: 55%;
-		padding-bottom: 1rem;
+		padding-bottom: 1.5rem;
 	}
 
 	.exemple{
@@ -236,6 +248,9 @@
 			border-radius: 1rem;
 			outline: solid 1px rgba(0, 0, 0, 0.07);
 			p{
+				margin: 1rem 0 1rem 0;
+			}
+			svg{
 				margin: 1rem 0 1rem 0;
 			}
 		}

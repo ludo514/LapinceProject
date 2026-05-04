@@ -40,221 +40,344 @@
   };
 </script>
 
+<!-- ── PAGE ── -->
 <div class="login-page">
-  <div class="overlay"></div>
-  {#if !showSignInPopup}
-    <section class="login-container">
-      <img src={logo} alt="logo" class="logo" />
-      <div class="login-signin-container">
-        <form action="" class="login-form" onsubmit={login}>
-          <div class="logs-container">
-            <label for="">Email</label>
-            <input type="email" bind:value={email} />
-          </div>
-          <div class="logs-container">
-            <label for="">Password</label>
-            <input type="password" bind:value={password} />
-          </div>
-          <button type="submit" class="connect-button">Se connecter</button>
-        </form>
 
-        <div class="sign-in-container">
-          <p>Pas encore de compte ?</p>
-          <button class="sign-in-button" onclick={openPopup}>S'inscrire</button>
-        </div>
+  {#if !showSignInPopup}
+
+    <!-- ── LOGIN ── -->
+    <div class="login-card">
+      <div class="login-card__logo-wrap">
+        <img src={logo} alt="Logo Lapince" class="login-card__logo" />
+        <span class="login-card__app-name">Lapince</span>
       </div>
-    </section>
+
+      <p class="login-card__subtitle">Bienvenue, connectez-vous pour continuer</p>
+
+      <form class="login-form" onsubmit={login}>
+        <div class="login-form__field">
+          <label class="login-form__label" for="login-email">Email</label>
+          <input
+            id="login-email"
+            class="login-form__input"
+            type="email"
+            placeholder="vous@exemple.fr"
+            bind:value={email}
+          />
+        </div>
+
+        <div class="login-form__field">
+          <label class="login-form__label" for="login-password">Mot de passe</label>
+          <input
+            id="login-password"
+            class="login-form__input"
+            type="password"
+            placeholder="••••••••"
+            bind:value={password}
+          />
+        </div>
+
+        <button type="submit" class="login-form__submit">Se connecter</button>
+      </form>
+
+      <p class="login-card__switch">
+        Pas encore de compte ?
+        <button class="login-card__switch-link" onclick={openPopup}>S'inscrire</button>
+      </p>
+    </div>
+
   {:else}
-    <section class="login-container">
-      <img src={logo} alt="logo" class="logo" />
-      <button onclick={closePopup} class="close-button" title="Fermer"
-        ><svg viewBox="0 0 384 512"
-          ><path
+
+    <!-- ── REGISTER ── -->
+    <div class="login-card">
+      <button class="login-card__close-btn" onclick={closePopup} aria-label="Fermer">
+        <svg viewBox="0 0 384 512" class="login-card__close-icon">
+          <path
             d="M55.1 73.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L147.2 256 9.9 393.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L192.5 301.3 329.9 438.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L237.8 256 375.1 118.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L192.5 210.7 55.1 73.4z"
             fill="currentColor"
-          /></svg
-        ></button
-      >
-      <form action="" class="login-form" onsubmit={register}>
-        <div class="logs-container">
-          <label for="">Nom</label>
-          <input type="text" bind:value={last_name} />
+          />
+        </svg>
+      </button>
+
+      <div class="login-card__logo-wrap">
+        <img src={logo} alt="Logo Lapince" class="login-card__logo" />
+        <span class="login-card__app-name">Lapince</span>
+      </div>
+
+      <p class="login-card__subtitle">Créez votre compte gratuitement</p>
+
+      <form class="login-form" onsubmit={register}>
+        <div class="login-form__row">
+          <div class="login-form__field">
+            <label class="login-form__label" for="register-lastname">Nom</label>
+            <input
+              id="register-lastname"
+              class="login-form__input"
+              type="text"
+              placeholder="Dupont"
+              bind:value={last_name}
+            />
+          </div>
+          <div class="login-form__field">
+            <label class="login-form__label" for="register-firstname">Prénom</label>
+            <input
+              id="register-firstname"
+              class="login-form__input"
+              type="text"
+              placeholder="Marie"
+              bind:value={first_name}
+            />
+          </div>
         </div>
-        <div class="logs-container">
-          <label for="">Prénom</label>
-          <input type="text" bind:value={first_name} />
+
+        <div class="login-form__field">
+          <label class="login-form__label" for="register-email">Email</label>
+          <input
+            id="register-email"
+            class="login-form__input"
+            type="email"
+            placeholder="vous@exemple.fr"
+            bind:value={email}
+          />
         </div>
-        <div class="logs-container">
-          <label for="">Email</label>
-          <input type="email" bind:value={email} />
+
+        <div class="login-form__field">
+          <label class="login-form__label" for="register-password">Mot de passe</label>
+          <input
+            id="register-password"
+            class="login-form__input"
+            type="password"
+            placeholder="••••••••"
+            bind:value={password}
+          />
         </div>
-        <div class="logs-container">
-          <label for="">Password</label>
-          <input type="password" bind:value={password} />
-        </div>
-        <button type="submit" class="connect-button"> S'inscrire</button>
+
+        <button type="submit" class="login-form__submit">Créer mon compte</button>
       </form>
-    </section>
+
+      <p class="login-card__switch">
+        Déjà un compte ?
+        <button class="login-card__switch-link" onclick={closePopup}>Se connecter</button>
+      </p>
+    </div>
+
   {/if}
+
 </div>
 
 <style>
+  /* ─────────────────────────────────────────
+     PAGE WRAPPER
+     ───────────────────────────────────────── */
 
   .login-page {
-    height: 100dvh;
+    min-height: 100dvh;
+    background: var(--bg-dark);
     display: flex;
     justify-content: center;
     align-items: center;
+    padding: 1.5rem 1rem;
+    font-family: var(--font-body);
   }
 
-  .logo {
-    margin: auto;
-    width: 5rem;
-    height: 5rem;
-  }
+  /* ─────────────────────────────────────────
+     CARD CENTRALE
+     ───────────────────────────────────────── */
 
-  input,
-  button {
-    border: none;
-  }
-
-  input:focus {
-    outline: 2px solid var(--accent-color);
-  }
-
-  .overlay {
-    position: fixed;
-    inset: 0;
-    backdrop-filter: blur(5px);
-    z-index: 1;
-  }
-
-  .login-container {
-    width: 80%;
+  .login-card {
     position: relative;
-    background-color: var(--primary-color);
-    border-radius: .5rem;
-    padding: 1rem 1rem 1rem 0.5rem;
+    width: 100%;
+    max-width: 26rem;
+    background: var(--bg-dark-mid);
+    border-radius: 1.25rem;
+    border: 0.03rem solid var(--border-card-dark);
+    padding: 2.25rem 2rem 2rem;
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    color: var(--background);
-    box-shadow: 0px 2px 10px var(--foreground);
-    font-size: 1.5rem;
-    z-index: 2;
+    align-items: center;
+    gap: 1.25rem;
+    box-shadow: 0 0.5rem 2rem rgba(0, 0, 0, 0.35);
   }
 
-  /*---LOGIN FORM SECTION---*/
+  /* ─────────────────────────────────────────
+     LOGO & NOM DE L'APP
+     ───────────────────────────────────────── */
+
+  .login-card__logo-wrap {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.6rem;
+  }
+
+  .login-card__logo {
+    width: 3.5rem;
+    height: 3.5rem;
+    border-radius: 0.88rem;
+  }
+
+  .login-card__app-name {
+    font-family: var(--font-display);
+    font-size: 1.38rem;
+    font-weight: 500;
+    color: var(--color-accent);
+    letter-spacing: -0.01em;
+  }
+
+  /* ─────────────────────────────────────────
+     SOUS-TITRE
+     ───────────────────────────────────────── */
+
+  .login-card__subtitle {
+    font-size: 0.8rem;
+    color: var(--text-on-dark-tertiary);
+    text-align: center;
+    line-height: 1.5;
+  }
+
+  /* ─────────────────────────────────────────
+     BOUTON FERMER (inscription)
+     ───────────────────────────────────────── */
+
+  .login-card__close-btn {
+    position: absolute;
+    top: 0.88rem;
+    right: 1rem;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    color: var(--text-on-dark-tertiary);
+    padding: 0.25rem;
+    border-radius: 0.38rem;
+    transition: color 0.2s;
+  }
+
+  .login-card__close-btn:hover {
+    color: var(--text-on-dark-primary);
+  }
+
+  .login-card__close-icon {
+    width: 0.88rem;
+    height: 0.88rem;
+    display: block;
+  }
+
+  /* ─────────────────────────────────────────
+     FORMULAIRE
+     ───────────────────────────────────────── */
 
   .login-form {
+    width: 100%;
     display: flex;
     flex-direction: column;
-    align-items: center;
-    gap: 2rem;
-
-    .logs-container {
-      display: flex;
-      flex-direction: column;
-      text-align: center;
-      color: var(--background);
-      font-family: var(--title-font);
-      gap: 0.5rem;
-
-      input {
-        border-radius: .3rem;
-        padding: .3rem;
-      }
-    }
+    gap: 1rem;
   }
 
-  .connect-button {
-    width: 10rem;
-    padding: 0 1rem;
-    border-radius: .3rem;
-    background-color: var(--secondary-color);
-    padding: .5rem;
-    color: var(--background);
+  /* Ligne à deux colonnes (nom / prénom) */
+  .login-form__row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.75rem;
   }
 
-  .connect-button:hover {
+  .login-form__field {
+    display: flex;
+    flex-direction: column;
+    gap: 0.38rem;
+  }
+
+  .login-form__label {
+    font-size: 0.75rem;
+    color: var(--text-on-dark-tertiary);
+    font-family: var(--font-title);
+    letter-spacing: 0.02em;
+  }
+
+  .login-form__input {
+    background: var(--bg-dark);
+    border: 0.03rem solid var(--border-separator);
+    border-radius: 0.6rem;
+    padding: 0.6rem 0.86rem;
+    font-size: 0.875rem;
+    color: var(--text-on-dark-secondary);
+    font-family: var(--font-body);
+    outline: none;
+    transition: border-color 0.2s, box-shadow 0.2s;
+    width: 100%;
+  }
+
+  .login-form__input::placeholder {
+    color: rgba(255, 255, 255, 0.2);
+  }
+
+  .login-form__input:focus {
+    border-color: var(--color-primary);
+    box-shadow: 0 0 0 0.1875rem rgba(74, 124, 120, 0.2);
+  }
+
+  /* Bouton soumettre */
+  .login-form__submit {
+    margin-top: 0.25rem;
+    width: 100%;
+    background: var(--color-accent);
+    color: var(--bg-dark);
+    border: none;
+    border-radius: 0.6rem;
+    padding: 0.75rem;
+    font-size: 0.8rem;
+    font-weight: 500;
+    font-family: var(--font-title);
     cursor: pointer;
-    background-color: var(--light-color);
+    transition: opacity 0.2s;
   }
 
-  .connect-button:active {
+  .login-form__submit:hover {
+    opacity: 0.88;
+  }
+
+  .login-form__submit:active {
     opacity: 1;
-    color: var(--background);
-    background-color: var(--main-color);
   }
 
-  /*---SIGN IN SECTION---*/
+  /* ─────────────────────────────────────────
+     LIEN BASCULE LOGIN ↔ REGISTER
+     ───────────────────────────────────────── */
 
-  .sign-in-container {
-    margin: 1rem 0 0 0;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    font-size: 1rem;
-    font-family: var(--title-font);
+  .login-card__switch {
+    font-size: 0.8rem;
+    color: var(--text-on-dark-muted);
+    text-align: center;
+    font-family: var(--font-body);
   }
 
-  .sign-in-button {
-    background-color: transparent;
-    color: var(--background-color);
+  .login-card__switch-link {
+    background: transparent;
     border: none;
+    cursor: pointer;
+    color: var(--color-accent);
+    font-size: 0.8rem;
+    font-family: var(--font-body);
     text-decoration: underline;
-    font-family: var(--additionnal-font);
-    text-shadow: 0px 1px 2px black;
+    padding: 0;
+    transition: opacity 0.2s;
   }
 
-  .sign-in-button:hover {
-    cursor: pointer;
-    color: var(--accent-color);
-    text-decoration: none;
+  .login-card__switch-link:hover {
+    opacity: 0.75;
   }
 
-  .sign-in-button:active {
-    color: var(--accent-color);
-  }
+  /* ─────────────────────────────────────────
+     RESPONSIVE MOBILE
+     ───────────────────────────────────────── */
 
-  /*---SIGN IN POPUP SECTION---*/
-
-  .close-button {
-    background-color: transparent;
-    color: var(--background);
-    width: 1.75rem;
-    height: 1.75rem;
-    border: none;
-    position: absolute;
-    right: 1rem;
-    top: 0.5rem;
-  }
-
-  .close-button:hover {
-    cursor: pointer;
-    opacity: 0.5;
-  }
-
-  /*---RESPONSIVE---*/
-
-  @media (min-width: 768px) {
-    .login-container {
-      padding: 1rem 4rem 3rem 4rem;
-      min-width: 550px;
-      max-width: 650px;
+  @media (max-width: 480px) {
+    .login-card {
+      padding: 1.75rem 1.25rem 1.5rem;
+      border-radius: 1rem;
     }
 
-    .logo {
-      margin: auto;
-      width: 6rem;
-      height: 6rem;
-    }
-
-    .login-signin-container {
-      display: flex;
-      flex-direction: row;
-      align-items: center;
-      gap: 4rem;
+    .login-form__row {
+      grid-template-columns: 1fr;
     }
   }
 </style>

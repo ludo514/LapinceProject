@@ -12,6 +12,95 @@
   --title-font: "IBM Plex Sans", sans-serif;
   --text-font: "Roboto", sans-serif;
   --additionnal-font: "Lora", serif;
+ 
+  /* ─────────────────────────────────────────
+     FONDS & SURFACES
+     ───────────────────────────────────────── */
+ 
+  --bg-dark          : #1E2F2C; /* Fond principal sombre — sidebar, hero, nav, CTA bas de page */
+  --bg-dark-mid      : #2F4640; /* Fond intermédiaire sombre — carte hero, bouton secondaire */
+  --bg-dark-deep     : #152320; /* Fond très sombre — footer */
+  --bg-cream         : #F4F2EF; /* Fond crème clair — zone principale dashboard, section features */
+  --bg-white         : #ffffff; /* Blanc pur — cards, widgets, inputs */
+ 
+  /* ─────────────────────────────────────────
+     COULEURS PRIMAIRES
+     ───────────────────────────────────────── */
+ 
+  --color-primary        : #4A7C78; /* Vert principal — barre budget, icônes, FAB, bouton nav */
+  --color-primary-hover  : #3a6460; /* Vert principal au survol */
+  --color-secondary      : #2F5C4C; /* Vert secondaire profond — ancienne couleur principale */
+ 
+  /* ─────────────────────────────────────────
+     ACCENT
+     ───────────────────────────────────────── */
+ 
+  --color-accent         : #F2D28C; /* Jaune doré — CTA principal, logo sidebar, badge hero, bouton S'inscrire */
+  --color-accent-bg      : rgba(242, 210, 140, 0.15); /* Fond badge jaune très transparent */
+  --color-accent-border  : rgba(242, 210, 140, 0.30); /* Bordure badge jaune */
+ 
+  /* ─────────────────────────────────────────
+     TEXTE SUR FOND SOMBRE
+     ───────────────────────────────────────── */
+ 
+  --text-on-dark-primary   : #ffffff;               /* Texte principal sur fond sombre */
+  --text-on-dark-secondary : rgba(255,255,255,0.75); /* Texte secondaire sur fond sombre */
+  --text-on-dark-tertiary  : rgba(255,255,255,0.55); /* Texte atténué — nav links, sous-titres */
+  --text-on-dark-muted     : rgba(255,255,255,0.35); /* Texte très atténué — footer links */
+  --text-on-dark-dim       : rgba(255,255,255,0.30); /* Texte discret — note hero, légendes */
+ 
+  --color-green-light      : #A8D1C2; /* Vert clair — texte bouton secondaire sur fond sombre */
+  --color-btn-secondary-border : #3d5e58; /* Bordure bouton secondaire sur fond sombre */
+ 
+  /* ─────────────────────────────────────────
+     TEXTE SUR FOND CLAIR
+     ───────────────────────────────────────── */
+ 
+  --text-on-light-primary  : #1E2F2C; /* Texte principal sur fond clair */
+  --text-on-light-body     : #2a2a2a; /* Texte corps — noms de transaction, valeurs */
+  --text-on-light-secondary: #888888; /* Texte secondaire — descriptions features */
+  --text-on-light-label    : #999999; /* Labels de section, card-label */
+  --text-on-light-meta     : #aaaaaa; /* Méta-infos — dates, sous-labels, budget */
+  --text-on-light-faint    : #bbbbbb; /* Catégories transactions, très discret */
+ 
+  /* ─────────────────────────────────────────
+     DONNÉES FINANCIÈRES
+     ───────────────────────────────────────── */
+ 
+  --color-income       : #1D9E75; /* Montant positif — entrées, solde favorable */
+  --color-expense      : #D85A30; /* Montant négatif — sorties, dépenses */
+  --color-warning      : #F2A827; /* Alerte budget — barre à 80% d'utilisation */
+  --color-danger       : #c62828; /* Danger — budget dépassé à 100% */
+ 
+  /* ─────────────────────────────────────────
+     BADGES & RÔLES
+     ───────────────────────────────────────── */
+ 
+  --badge-member-bg    : rgba(74, 124, 120, 0.09); /* Fond badge "Membre" */
+  --badge-member-color : #4A7C78;                  /* Texte badge "Membre" */
+  --badge-admin-bg     : rgba(242, 210, 140, 0.19); /* Fond badge "Admin" */
+  --badge-admin-color  : #BA7517;                   /* Texte badge "Admin" */
+ 
+  /* ─────────────────────────────────────────
+     BORDURES
+     ───────────────────────────────────────── */
+ 
+  --border-card-light  : rgba(0, 0, 0, 0.07);       /* Bordure cards sur fond clair */
+  --border-card-dark   : rgba(255, 255, 255, 0.08);  /* Bordure cards sur fond sombre */
+  --border-separator   : rgba(255, 255, 255, 0.10);  /* Séparateurs dans la sidebar */
+  --border-nav-btn     : rgba(255, 255, 255, 0.25);  /* Bordure bouton outline dans la nav */
+ 
+  /* ─────────────────────────────────────────
+     TYPOGRAPHIES
+     ───────────────────────────────────────── */
+ 
+  --font-title    : "IBM Plex Sans", sans-serif; /* Titres, labels, navigation */
+  --font-body     : "Roboto", sans-serif;        /* Corps de texte, paragraphes */
+  --font-display  : "Lora", serif;               /* Titres hero, logo, montants financiers */
+ 
+  /* ─────────────────────────────────────────
+     ANCIEN SYSTÈME (conservé pour compatibilité)
+     ───────────────────────────────────────── */
 }
 
 *,
