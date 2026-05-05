@@ -1,4 +1,6 @@
 <script>
+// @ts-nocheck
+
     import { onMount } from "svelte";
     import api from "../callApi";
     import { optionGroupModal, transactionGroup,activeGroup, sumTransa } from "../hooks/states.svelte";
@@ -38,6 +40,7 @@
 <article>
     <div class="container">
         <div class="containerHead">
+            <span class="dot"></span>
             <button class="buttonGroup" onclick={getTransactionsGroup}>
                 <h2>{name}</h2>
             </button>
@@ -66,27 +69,41 @@
     .containerHead {
         width: 100%;
         display: flex;
-        justify-content: space-between;
         align-items: center;
+    }
+
+    .dot{
+        width: 0.4rem;
+        height: 0.4rem;
+        border-radius: 50%;
+        background: white;
     }
     .container{
         height: fit-content;
         background-color: var(--dark-color);
         color: var(--background);
         padding: 0.5rem 0.75rem;
-        border-radius: 1rem;
-        box-shadow: 0px 3px 5px var(--foreground);
-        font-family: var(--text-font);
+        border-radius: 0.5rem;
+        font-family: var(--font-body);
+    }
+
+    .container:hover{
+        background-color: rgba(255, 255, 255, 0.151);
+    }
+    h2:hover{
+        color: var(--text-on-dark-primary);
     }
     .modal{
         width: 100%;
     }
     h2 {
         font-weight: 400;
-        font-size: 1rem;
+        font-size: 1.1rem;
+        color: var(--text-on-dark-secondary);
     }
     .option-group{
         display: flex;
+        margin-left: 5rem;
     }
 
     p {

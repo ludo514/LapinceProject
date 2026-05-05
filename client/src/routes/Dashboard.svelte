@@ -174,14 +174,18 @@
     {:else}
         <!-- DESKTOP -->
         <aside id="group-list" class="overlay-desktop">
+            <h1>Lapince</h1>
+            <span>GROUPES</span>
             {#each allGroups.groups as group (group.id)}
                 <Group name={group.name} id={group.id} />
             {/each}
-
+            <span>ACTIONS</span>
             <AddGroup />
-            <button class="disconnect-button" onclick={logOut}>
-                <strong>Déconnexion</strong>
-            </button>
+            <div class="disconnect">
+                <button class="disconnect-button" onclick={logOut}>
+                    <strong>Déconnexion</strong>
+                </button>
+            </div>
         </aside>
     {/if}
 
@@ -320,19 +324,26 @@
         padding: 1rem;
     }
 
+    .disconnect{
+        margin-top: auto;
+        padding-top: 2rem;
+        height: 5rem;
+        border-top: solid 1px var(--text-on-dark-dim);
+    }
     .disconnect-button {
         background-color: transparent;
-        color: var(--foreground);
+        color: var(--text-on-dark-dim);
         border: none;
-        margin-top: auto;
-        margin-bottom: 3.5rem;
         margin-right: auto;
         transition: all 0ms;
+        padding: .5rem;
+        border-radius: .5rem;
     }
 
     .disconnect-button:hover {
         cursor: pointer;
         color: var(--accent-color);
+        background-color: rgba(255, 255, 255, 0.151);
     }
 
     strong {
@@ -345,13 +356,21 @@
 
     #group-list {
         flex-shrink: 0;
-        background-color: var(--primary-color);
-        padding: 5rem 1rem 1.5rem 1rem;
+        background-color: var(--bg-dark);
         display: flex;
         flex-direction: column;
         gap: 1rem;
-        border-right: solid 1px var(--dark-color);
-        box-shadow: 1px 0 2.5px var(--foreground);
+        span{
+            font-family: var(--font-body);
+            color: var(--text-on-dark-muted);
+            font-size: 0.9rem;
+            margin-left: .6rem;
+        }
+        h1{
+            color: var(--accent-color);
+            font-family: var(--title-font);
+            margin-bottom: 2rem;
+        }
     }
 
     main {

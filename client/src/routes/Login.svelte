@@ -1,7 +1,8 @@
 <script>
+// @ts-nocheck
+
   import logo from "../assets/Logo.png";
   import { loginUser, registerUser } from "../lib/auth/auth";
-  import { saveAuth } from "../lib/auth/store";
   import { replace } from "svelte-spa-router";
 
   let showSignInPopup = $state(false);

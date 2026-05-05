@@ -102,7 +102,7 @@
 		justify-content: space-between;
 		padding: 1.5rem;
 		h1{
-			color: #F2D28C; /* --color-accent */
+			color: var(--color-accent); /* --color-accent */
 		}
 	}
 
@@ -111,7 +111,7 @@
 	}
 	.hero {
 		max-width: 100%;
-		background: #1E2F2C; /* --bg-dark */
+		background: var(--bg-dark); /* --bg-dark */
 		color: var(--background);
 		position: relative;
 		height: 55%;
@@ -123,7 +123,7 @@
 		h4{
 			font-weight: 300;
 			font-size: .9rem;
-			color: rgba(255,255,255,0.55); /* --text-on-dark-tertiary */
+			color: var(--text-on-dark-tertiary); /* --text-on-dark-tertiary */
 			margin-bottom: .5rem;
 		}
 		.transac{
@@ -138,14 +138,14 @@
 		}
 		p{
 			font-size: 0.8rem;
-			color: rgba(255,255,255,0.55);/* --text-on-dark-tertiary */
+			color: var(--text-on-dark-tertiary);/* --text-on-dark-tertiary */
 			margin-bottom: 1rem;
 		}
 		.expense{
-			color: #D85A30; /*--color-expense*/
+			color: var(--color-expense); /*--color-expense*/
 		}
 		.income{
-			color: #1D9E75; /*--color-income*/
+			color: var(--color-income); /*--color-income*/
 		}
 		.cate{
 			color: rgba(255,255,255,0.75);
@@ -162,7 +162,7 @@
 		.mini-fill {
 			height: 100%;
 			width: 68%;
-			background: #4A7C78; /* --color-primary */
+			background: var(--color-primary); /* --color-primary */
 			border-radius: 99px;
 		}
 	}
@@ -180,27 +180,27 @@
 			}
 			span{
 				font-size: 0.8rem;
-				background-color: rgba(242,210,140,0.3); /* --color-accent-border */
+				background-color: var(--color-accent-border); /* --color-accent-border */
 				padding: .5rem;
 				border-radius: 2rem;
 				color: #F2D28C;
-				outline: solid 1px #F2D28C; /* --color-accent */
+				outline: solid 1px var(--color-accent); /* --color-accent */
 			}
 			p{
-				color: rgba(255,255,255,0.55); /* --text-on-dark-tertiary */
+				color: var(--text-on-dark-tertiary); /* --text-on-dark-tertiary */
 				margin-bottom: 1rem;
 			}
 			button{
 				margin-bottom: 1rem;
 			}
 			small{
-				color: rgba(255,255,255,0.30); /* --text-on-dark-dim */
+				color: var(--text-on-dark-dim); /* --text-on-dark-dim */
 			}
 		}
 		.exemple{
-			background-color: #2F4640; /* --bg-dark-mid */
+			background-color: var(--bg-dark-mid); /* --bg-dark-mid */
 			padding: 2rem;
-			outline: solid 1px rgba(255, 255, 255, 0.25); /* --border-nav-btn */
+			outline: solid 1px var(--border-nav-btn); /* --border-nav-btn */
 			border-radius: .8rem;
 			margin-left: 15rem;
 		}
@@ -214,8 +214,8 @@
         padding: 0.5rem 0.5rem;
         border-radius: 8px;
         border: none;
-        color: #1E2F2C; /* --bg-dark */
-		background-color: #F2D28C; /* --color-accent*/
+        color: var(--bg-dark); /* --bg-dark */
+		background-color: var(--color-accent); /* --color-accent*/
 		font-weight: 600;
     }
 
@@ -228,10 +228,10 @@
 		.needToHave{
 			font-size: 1.6rem;
 			font-weight: 500;
-			color: #1E2F2C; /* --text-on-light-primary*/
+			color: var(--text-on-light-primary); /* --text-on-light-primary*/
 		}
 		.tools{
-			color: #888888; /* --text-on-light-secondary */
+			color: var(--text-on-light-secondary); /* --text-on-light-secondary */
 		}
 		.containerCards{
 			display: flex;
@@ -243,7 +243,7 @@
 		}
 		.cards{
 			width: 20rem;
-			background-color: #ffffff; /* --bg-white */
+			background-color: var(--bg-white); /* --bg-white */
 			padding: 1.6rem;
 			border-radius: 1rem;
 			outline: solid 1px rgba(0, 0, 0, 0.07);
@@ -260,30 +260,30 @@
 		width: 100%;
 		margin-top: 5rem;
 		.firstPartFooter{
-			background-color: #1E2F2C;
+			background-color: var(--text-on-light-primary);
 			padding: 2rem;
 			display: flex;
 			justify-content: space-around;
 			span{
-				color: #ffffff;
+				color: var(--bg-white);
 				font-weight: bold;
 				font-size: 1.2rem;
 			}
 			p{
-				color: rgba(255,255,255,0.35); /* --text-on-dark-muted*/
+				color: var(--text-on-dark-muted); /* --text-on-dark-muted*/
 			}
 		}
 		.secondPartFooter{
-			background-color: #152320; /* --bg-dark-deep*/
+			background-color: var(--bg-dark-deep); /* --bg-dark-deep*/
 			display: flex;
 			justify-content: space-between;
 			padding: 1rem;
 			p{
-				color: rgba(255,255,255,0.30); /* --text-on-dark-dim*/
+				color: var(--text-on-dark-dim); /* --text-on-dark-dim*/
 			}
 			a{
 				text-decoration: none;
-				color: rgba(255,255,255,0.30);
+				color: var(--text-on-dark-dim);
 			}
 		}
 	}
